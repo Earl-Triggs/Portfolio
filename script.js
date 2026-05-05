@@ -95,10 +95,19 @@ const texts = [
   "Hello",
   "Kamusta",
   "こんにちは",
-  "안녕하세요"
+  "안녕하세요",
+  "你好",
+  "Bonjour",
+  "¡Hola!",
 ];
 
-const rareText = "⸢This story is for just that one reader.⸥";
+// Pinaglaruan ko lang ng onte sir hehe
+const rareText = [
+  "⸢This story is for just that one reader.⸥",
+  "⸢Hello, Puppet of the Oldest Dream.⸥",
+  "⸢■■⸥",
+  "⸢Hello, World!⸥"
+];
 
 let index = 0;
 const element = document.getElementById("changing-text");
@@ -106,7 +115,7 @@ const element = document.getElementById("changing-text");
 function getRandomText() {
   const isRare = Math.random() < 0.01;
 
-  if (isRare) return rareText;
+  if (isRare) return rareText[Math.floor(Math.random() * rareText.length)];
   index = (index + 1) % texts.length;
   return texts[index];
 }
@@ -118,3 +127,53 @@ setInterval(() => {
     element.style.opacity = 1;
   }, 500);
 }, 2500);
+
+// experimenting lang poooo
+document.addEventListener("DOMContentLoaded", () => {
+
+  const texts = [
+    "[Constellation, 'Demon King of Salvation', is throwing a temper tantrum in the Constellation, 'Secretive Plotter's' direction.]",
+    "[...]",
+    "[Constellation, 'God of Wine and Ecstasy', is greeting you.]",
+    "[The constellation ‘Prisoner of the Golden Headband’ wants the X-grade Ferrarigini.]",
+    "[Constellation, 'Abyssal Black Flame Dragon', is asking you if the rumour is true.]"
+  ];
+  
+  const el = document.createElement("span");
+  el.style.position = "fixed";
+  el.style.fontSize = "13px";
+  el.style.color = "rgba(255,255,255,0.7)";
+  el.style.pointerEvents = "none";
+  el.style.opacity = "0";
+  el.style.transition = "opacity 0.4s ease";
+  el.style.zIndex = "999";
+  el.style.fontStyle = "italic";
+
+  document.body.appendChild(el);
+
+  function showRandomText() {
+    el.textContent = texts[Math.floor(Math.random() * texts.length)];
+
+    const x = Math.random() * (window.innerWidth - 100);
+    const y = Math.random() * (window.innerHeight - 50);
+
+    el.style.left = x + "px";
+    el.style.top = y + "px";
+
+    el.style.opacity = "1";
+
+    setTimeout(() => {
+      el.style.opacity = "0";
+    }, 4000);
+  }
+
+  function loop() {
+    const delay = Math.random() * 30000 + 30000;
+    setTimeout(() => {
+      showRandomText();
+      loop();
+    }, delay);
+  }
+
+  loop();
+});

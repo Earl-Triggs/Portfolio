@@ -179,6 +179,17 @@ main {
   transition: opacity 0.4s ease;
 }
 
+#easterText {
+  position: fixed;
+  font-size: 13px;
+  color: rgba(255,255,255,0.7);
+  pointer-events: none;
+  opacity: 0;
+  transition: opacity 0.4s ease;
+  z-index: 999;
+  font-style: italic;
+}
+
 footer {
     text-align: center;
     padding: 10px;
