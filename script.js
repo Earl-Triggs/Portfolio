@@ -2,36 +2,94 @@ const projects = [
   {
     title: "Student MVC System",
     description: "CRUD system using PHP MVC",
-    tech: ["PHP", "MySQL"]
+    tech: [
+      { name: "PHP", icon: "images/php.png" },
+      { name: "MySQL", icon: "images/database.png" }
+    ]
   },
   {
     title: "Airline Booking System",
     description: "Simple airline booking application",
-    tech: ["Java"]
+    tech: [
+      { name: "Java", icon: "images/java.png" }
+    ]
   },
   {
     title: "Online Shopping Website",
-    description: "E-commerce platform for online shopping",
-    tech: ["Html", "CSS", "JavaScript"]
+    description: "E-commerce platform",
+    tech: [
+      { name: "HTML", icon: "images/html-5.png" },
+      { name: "CSS", icon: "images/css-3.png" },
+      { name: "JavaScript", icon: "images/js.png" }
+    ]
   }
 ];
 
-const container = document.getElementById("project-list");
+document.addEventListener("DOMContentLoaded", () => {
 
-if (container) {
-  projects.forEach(project => {
-    const card = document.createElement("div");
-    card.classList.add("card");
+  const projectContainer = document.getElementById("project-list");
 
-    card.innerHTML = `
-      <h3>${project.title}</h3>
-      <p>${project.description}</p>
-      <small>${project.tech.join(", ")}</small>
-    `;
+  if (projectContainer) {
+    projectContainer.innerHTML = projects.map(p => `
+      <div class="card">
+        <h3>${p.title}</h3>
+        <p>${p.description}</p>
 
-    container.appendChild(card);
-  });
+        <div class="tech-icons">
+          ${(p.tech || []).map(t => `
+            <img src="${t.icon}" alt="${t.name}">
+          `).join("")}
+        </div>
+      </div>
+    `).join("");
+  }
+
+  const featuredContainer = document.getElementById("featured-projects");
+
+  if (featuredContainer) {
+
+    let start = 0;
+    const visibleCount = 2;
+
+function renderFeatured() {
+  const visible = [];
+
+  for (let i = 0; i < visibleCount; i++) {
+    const project = projects[(start + i) % projects.length];
+    if (project) visible.push(project);
+  }
+  featuredContainer.style.opacity = 0;
+
+  setTimeout(() => {
+
+    featuredContainer.innerHTML = visible.map(p => `
+      <div class="card">
+        <h3>${p.title}</h3>
+        <p>${p.description}</p>
+
+        <div class="tech-icons">
+          ${(p.tech || []).map(t => `
+            <img src="${t.icon}" alt="${t.name}">
+          `).join("")}
+        </div>
+      </div>
+    `).join("");
+    requestAnimationFrame(() => {
+      featuredContainer.style.opacity = 1;
+    });
+
+  }, 200);
 }
+
+    renderFeatured();
+
+    setInterval(() => {
+      start = (start + 1) % projects.length;
+      renderFeatured();
+    }, 3000);
+  }
+
+});
 
 const texts = [
   "Hello",
@@ -46,7 +104,7 @@ let index = 0;
 const element = document.getElementById("changing-text");
 
 function getRandomText() {
-  const isRare = Math.random() < 0.0001;
+  const isRare = Math.random() < 0.01;
 
   if (isRare) return rareText;
   index = (index + 1) % texts.length;
