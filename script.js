@@ -2,6 +2,7 @@ const projects = [
   {
     title: "Student MVC System",
     description: "CRUD system using PHP MVC",
+    link: "https://github.com/Earl-Triggs/Student-MVC-System.git",
     tech: [
       { name: "PHP", icon: "images/php.png" },
       { name: "MySQL", icon: "images/database.png" }
@@ -10,6 +11,7 @@ const projects = [
   {
     title: "Airline Booking System",
     description: "Simple airline booking application",
+    link: "https://github.com/Earl-Triggs/Airline-Booking-System.git",
     tech: [
       { name: "Java", icon: "images/java.png" }
     ]
@@ -17,10 +19,10 @@ const projects = [
   {
     title: "Online Shopping Website",
     description: "E-commerce platform",
+    link: "https://limoshopping.netlify.app/#footer",
     tech: [
       { name: "HTML", icon: "images/html-5.png" },
-      { name: "CSS", icon: "images/css-3.png" },
-      { name: "JavaScript", icon: "images/js.png" }
+      { name: "CSS", icon: "images/css-3.png" }
     ]
   }
 ];
@@ -36,12 +38,14 @@ document.addEventListener("DOMContentLoaded", () => {
         <p>${p.description}</p>
 
         <div class="tech-icons">
-          ${(p.tech || []).map(t => `
-            <img src="${t.icon}" alt="${t.name}">
-          `).join("")}
+        ${(p.tech || []).map(t => `
+          <img src="${t.icon}" alt="${t.name}">
+        `).join("")}
         </div>
+
+        <a href="${p.link}" target="_blank" class="btn">View Project</a>
       </div>
-    `).join("");
+  `).join("");
   }
 
   const featuredContainer = document.getElementById("featured-projects");
@@ -63,16 +67,18 @@ function renderFeatured() {
   setTimeout(() => {
 
     featuredContainer.innerHTML = visible.map(p => `
-      <div class="card">
-        <h3>${p.title}</h3>
-        <p>${p.description}</p>
+    <div class="card">
+      <h3>${p.title}</h3>
+      <p>${p.description}</p>
 
-        <div class="tech-icons">
-          ${(p.tech || []).map(t => `
-            <img src="${t.icon}" alt="${t.name}">
-          `).join("")}
-        </div>
-      </div>
+    <div class="tech-icons">
+      ${(p.tech || []).map(t => `
+        <img src="${t.icon}" alt="${t.name}">
+      `).join("")}
+    </div>
+
+    <a href="${p.link}" target="_blank" class="btn">View Project</a>
+    </div>
     `).join("");
     requestAnimationFrame(() => {
       featuredContainer.style.opacity = 1;
@@ -90,6 +96,14 @@ function renderFeatured() {
   }
 
 });
+
+
+
+
+
+
+
+
 
 const texts = [
   "Hello",
@@ -128,12 +142,54 @@ setInterval(() => {
   }, 500);
 }, 2500);
 
+
+
+
+
+
+const track = document.querySelector(".skills-track");
+
+if (track) {
+  let isDown = false;
+  let startX;
+  let scrollLeft;
+
+  track.addEventListener("mousedown", (e) => {
+    isDown = true;
+    track.classList.add("dragging"); // 🔥 add this
+    startX = e.pageX;
+    scrollLeft = track.scrollLeft;
+  });
+
+  track.addEventListener("mouseleave", () => {
+    isDown = false;
+    track.classList.remove("dragging");
+  });
+
+  track.addEventListener("mouseup", () => {
+    isDown = false;
+    track.classList.remove("dragging");
+  });
+
+  track.addEventListener("mousemove", (e) => {
+    if (!isDown) return;
+    e.preventDefault();
+
+    const walk = (e.pageX - startX) * 1.5;
+    track.scrollLeft = scrollLeft - walk;
+  });
+}
+
+
+
+
+
+
 // experimenting lang poooo
 document.addEventListener("DOMContentLoaded", () => {
 
   const texts = [
     "[Constellation, 'Demon King of Salvation', is throwing a temper tantrum in the Constellation, 'Secretive Plotter's' direction.]",
-    "[...]",
     "[Constellation, 'God of Wine and Ecstasy', is greeting you.]",
     "[The constellation ‘Prisoner of the Golden Headband’ wants the X-grade Ferrarigini.]",
     "[Constellation, 'Abyssal Black Flame Dragon', is asking you if the rumour is true.]"
@@ -176,4 +232,33 @@ document.addEventListener("DOMContentLoaded", () => {
   }
 
   loop();
+});
+
+
+
+document.addEventListener("DOMContentLoaded", () => {
+  const paragraphs = document.querySelectorAll(".type-text");
+
+  let delay = 0;
+
+  paragraphs.forEach(p => {
+    const text = p.textContent;
+    p.textContent = "";
+
+    setTimeout(() => {
+      let i = 0;
+
+      function type() {
+        if (i < text.length) {
+          p.textContent += text[i];
+          i++;
+          setTimeout(type, 15);
+        }
+      }
+
+      type();
+    }, delay);
+
+    delay += text.length * 15 + 500; // spacing between paragraphs
+  });
 });
