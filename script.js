@@ -263,7 +263,7 @@ document.addEventListener("DOMContentLoaded", () => {
         if (i < text.length) {
           p.textContent += text[i];
           i++;
-          setTimeout(type, 15);
+          setTimeout(type, 7);
         } else {
           p.classList.remove("typing");
         }
@@ -272,6 +272,6 @@ document.addEventListener("DOMContentLoaded", () => {
       type();
     }, delay);
 
-    delay += text.length * 15 + 500;
+    delay += text.length * 10;
   });
 });
