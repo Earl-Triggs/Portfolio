@@ -24,6 +24,15 @@ const projects = [
       { name: "HTML", icon: "images/html-5.png" },
       { name: "CSS", icon: "images/css-3.png" }
     ]
+  },
+  {
+    title: "Video Editing",
+    description: "More of a side hobby, but I have experience with video editing using Adobe Photoshop, and DaVinci Resolve. I enjoy creating short videos and animations for fun.",
+    link: "https://www.tiktok.com/@triggaword",
+    tech: [
+      { name: "DaVinci Resolve", icon: "images/davinci.png" },
+      { name: "Adobe Photoshop", icon: "images/photoshop.png" }
+    ]
   }
 ];
 
@@ -248,17 +257,21 @@ document.addEventListener("DOMContentLoaded", () => {
     setTimeout(() => {
       let i = 0;
 
+      p.classList.add("typing");
+
       function type() {
         if (i < text.length) {
           p.textContent += text[i];
           i++;
           setTimeout(type, 15);
+        } else {
+          p.classList.remove("typing");
         }
       }
 
       type();
     }, delay);
 
-    delay += text.length * 15 + 500; // spacing between paragraphs
+    delay += text.length * 15 + 500;
   });
 });
