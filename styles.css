@@ -22,6 +22,11 @@ body.light-mode .hobby-card {
   border: 1px solid rgba(0,0,0,0.08);
 }
 
+body.light-mode .tech-icons img,
+body.light-mode .edu-icon {
+  background: rgba(0,0,0,0.08);
+}
+
 body.light-mode a {
   color: #111;
 }
