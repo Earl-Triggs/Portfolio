@@ -432,10 +432,29 @@ footer {
   margin-bottom: 40px;
 }
 
-.hobby-grid {
-  display: grid;
-  grid-template-columns: repeat(2, 1fr);
+.hobby-carousel-container {
+  position: relative;
+  width: 100%;
+  overflow: hidden;
+  padding: 20px 0;
+}
+
+.hobby-carousel {
+  display: flex;
   gap: 20px;
+  overflow-x: auto;
+  scroll-behavior: smooth;
+
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+
+  scroll-snap-type: x mandatory;
+
+  padding: 20px calc(50% - 200px);
+}
+
+.hobby-carousel::-webkit-scrollbar {
+  display: none;
 }
 
 .hobby-card {
@@ -447,11 +466,29 @@ footer {
   display: flex;
   flex-direction: column;
   height: 100%;
+  min-width: 600px;
+  max-width: 600px;
+  filter: blur(1px);
+  flex-shrink: 0;
+  scroll-snap-align: center;
+
+  transition:
+    transform 0.4s ease,
+    opacity 0.4s ease;
+
+  opacity: 0.6;
+  transform: scale(0.9);
 }
 
 .hobby-card:hover {
   transform: translateY(-8px);
   background: rgba(255,255,255,0.08);
+}
+
+.hobby-card.active {
+  opacity: 1;
+  transform: scale(1);
+  filter: blur(0);
 }
 
 .hobby-card img {
@@ -486,6 +523,40 @@ footer {
   align-self: flex-end;
 }
 
+.carousel-btn {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+
+  width: 50px;
+  height: 50px;
+
+  border-radius: 50%;
+
+  border: none;
+
+  background: rgba(255,255,255,0.08);
+  color: white;
+
+  cursor: pointer;
+
+  z-index: 10;
+
+  transition: 0.3s ease;
+}
+
+.carousel-btn:hover {
+  background: white;
+  color: black;
+}
+
+.carousel-btn.left {
+  left: 10px;
+}
+
+.carousel-btn.right {
+  right: 10px;
+}
 
 .theme-btn {
   background: rgba(255,255,255,0.08);

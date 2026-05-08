@@ -191,7 +191,45 @@ if (track) {
 
 
 
+const hobbyCarousel = document.getElementById("hobbyCarousel");
 
+const nextBtn = document.getElementById("nextBtn");
+const prevBtn = document.getElementById("prevBtn");
+
+const hobbyCards = document.querySelectorAll(".hobby-card");
+
+let currentIndex = 0;
+
+function updateCarousel() {
+
+  hobbyCards.forEach(card => {
+    card.classList.remove("active");
+  });
+
+  hobbyCards[currentIndex].classList.add("active");
+
+  hobbyCards[currentIndex].scrollIntoView({
+    behavior: "smooth",
+    inline: "center"
+  });
+}
+
+if (nextBtn && prevBtn) {
+
+  nextBtn.addEventListener("click", () => {
+    currentIndex = (currentIndex + 1) % hobbyCards.length;
+    updateCarousel();
+  });
+
+  prevBtn.addEventListener("click", () => {
+    currentIndex =
+      (currentIndex - 1 + hobbyCards.length) % hobbyCards.length;
+
+    updateCarousel();
+  });
+
+  updateCarousel();
+}
 
 
 // experimenting lang poooo
