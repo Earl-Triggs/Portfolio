@@ -51,6 +51,11 @@ nav {
   background: #222;
 }
 
+.nav-right {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+}
 section {
   padding: 40px 20px 100px;
   margin: 0px;
@@ -219,14 +224,14 @@ footer {
   -ms-overflow-style: none;
   overscroll-behavior: contain;
   scroll-behavior: smooth;
-  
+  animation: scroll 200s linear  infinite;
 }
 
 .skills-track img {
   width: 70px;
   height: 70px;
   object-fit: contain;
-  animation: scroll 200s linear  infinite;
+ 
 }
 
 
@@ -477,5 +482,19 @@ footer {
 }
 
 
+.theme-btn {
+  background: rgba(255,255,255,0.08);
+  border: 1px solid rgba(255,255,255,0.15);
+  color: white;
+  padding: 10px 14px;
+  border-radius: 10px;
+  cursor: pointer;
+  transition: 0.3s ease;
+}
+
+.theme-btn:hover {
+  background: white;
+  color: black;
+}
 
 
