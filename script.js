@@ -1,3 +1,46 @@
+const bootMessages = [
+  "INITIALIZING SYSTEM...",
+  "LOADING USER PROFILE...",
+  "CHECKING FILE INTEGRITY...",
+  "CONNECTING TO THE STAR STREAM...",
+  "ACCESS GRANTED.",
+  "WELCOME, INCARNATION."
+];
+
+document.addEventListener("DOMContentLoaded", () => {
+  const bootScreen = document.getElementById("boot-screen");
+  if (!bootScreen) return;
+
+  let i = 0;
+
+  function typeBoot() {
+    if (i >= bootMessages.length) {
+      setTimeout(() => {
+        bootScreen.style.opacity = "0";
+
+        setTimeout(() => {
+          bootScreen.remove();
+        }, 800);
+      }, 500);
+
+      return;
+    }
+
+    const line = document.createElement("div");
+    line.textContent = "> " + bootMessages[i];
+    bootScreen.appendChild(line);
+
+    i++;
+    setTimeout(typeBoot, 600);
+  }
+
+  typeBoot();
+});
+
+
+
+
+
 const projects = [
   {
     title: "Student MVC System",
@@ -242,9 +285,9 @@ if (nextBtn && prevBtn) {
 document.addEventListener("DOMContentLoaded", () => {
 
   const texts = [
-    "[Constellation, 'Demon King of Salvation', is throwing a temper tantrum in the Constellation, 'Secretive Plotter's' direction.]",
+    "[Constellation, 'Demon King of Salvation', is watching your story.]",
     "[Constellation, 'God of Wine and Ecstasy', is greeting you.]",
-    "[The constellation ‘Prisoner of the Golden Headband’ wants the X-grade Ferrarigini.]",
+    "[The constellation 'Prisoner of the Golden Headband' wants the X-grade Ferrarigini.]",
     "[Constellation, 'Abyssal Black Flame Dragon', is asking you if the rumour is true.]"
   ];
   

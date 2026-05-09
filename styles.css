@@ -3,6 +3,8 @@ body {
   margin: 0;
   background: #111;
   color: white;
+  opacity: 1;
+  transition: opacity 1.2s ease;
 }
 
 body.light-mode {
@@ -56,7 +58,23 @@ body.light-mode .carousel-btn:hover {
   color: white;
 }
 
+#boot-screen {
+  position: fixed;
+  inset: 0;
+  background: #0b0f14;
+  color: #7fdcff;
+  font-family: "Courier New", monospace;
 
+  padding: 40px;
+  z-index: 9999;
+
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+
+  opacity: 1;
+  transition: opacity 1.2s ease;
+}
 
 .special-text {
   font-family: Courier New, monospace;
