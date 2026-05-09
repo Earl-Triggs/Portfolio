@@ -165,7 +165,7 @@ if (track) {
 
   track.addEventListener("mousedown", (e) => {
     isDown = true;
-    track.classList.add("dragging"); // 🔥 add this
+    track.classList.add("dragging");
     startX = e.pageX;
     scrollLeft = track.scrollLeft;
   });

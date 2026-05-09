@@ -234,14 +234,14 @@ footer {
   -ms-overflow-style: none;
   overscroll-behavior: contain;
   scroll-behavior: smooth;
-  animation: scroll 200s linear  infinite;
+
 }
 
 .skills-track img {
   width: 70px;
   height: 70px;
   object-fit: contain;
- 
+  animation: scroll 200s linear  infinite;
 }
 
 
