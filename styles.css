@@ -41,6 +41,19 @@ body.light-mode .theme-btn {
   border: 1px solid rgba(0,0,0,0.15);
 }
 
+body.light-mode .carousel-btn {
+  background: rgba(0, 0, 0, 0.08);
+  color: #111;
+  border: 1px solid rgba(0, 0, 0, 0.15);
+}
+
+body.light-mode .carousel-btn:hover {
+  background: #111;
+  color: white;
+}
+
+
+
 .special-text {
   font-family: Courier New, monospace;
 }
@@ -439,17 +452,15 @@ footer {
   padding: 20px 0;
 }
 
+
 .hobby-carousel {
   display: flex;
   gap: 20px;
   overflow-x: auto;
   scroll-behavior: smooth;
-
   scrollbar-width: none;
   -ms-overflow-style: none;
-
-  scroll-snap-type: x mandatory;
-
+  transition: transform 0.5s ease;
   padding: 20px calc(50% - 200px);
 }
 
@@ -470,8 +481,6 @@ footer {
   max-width: 600px;
   filter: blur(1px);
   flex-shrink: 0;
-  scroll-snap-align: center;
-
   transition:
     transform 0.4s ease,
     opacity 0.4s ease;

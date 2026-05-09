@@ -208,9 +208,16 @@ function updateCarousel() {
 
   hobbyCards[currentIndex].classList.add("active");
 
-  hobbyCards[currentIndex].scrollIntoView({
-    behavior: "smooth",
-    inline: "center"
+  const card = hobbyCards[currentIndex];
+
+  const scrollPosition =
+    card.offsetLeft -
+    (hobbyCarousel.offsetWidth / 2) +
+    (card.offsetWidth / 2);
+
+  hobbyCarousel.scrollTo({
+    left: scrollPosition,
+    behavior: "smooth"
   });
 }
 
@@ -230,7 +237,6 @@ if (nextBtn && prevBtn) {
 
   updateCarousel();
 }
-
 
 // experimenting lang poooo
 document.addEventListener("DOMContentLoaded", () => {
