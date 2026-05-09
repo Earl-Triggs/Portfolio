@@ -114,7 +114,7 @@ main {
 .card {
   padding: 20px;
   margin: 10px 0;
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  transition: transform 0.3s ease;
   background: rgba(255, 255, 255, 0.05);
   backdrop-filter: blur(10px);
   border-radius: 12px;
@@ -175,14 +175,6 @@ main {
   font-weight: bold;
   line-height: 1.2;
   margin: 0;
-}
-
-.fade-out {
-  opacity: 0;
-}
-
-.fade-in {
-  opacity: 1;
 }
 
 .btn {
