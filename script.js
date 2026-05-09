@@ -345,3 +345,71 @@ if (themeToggle) {
   });
 
 }
+
+
+
+
+
+
+
+
+document.addEventListener("DOMContentLoaded", () => {
+  const hidden = document.querySelector(".hidden-content");
+
+  if (!hidden) return;
+
+  setTimeout(() => {
+    hidden.style.opacity = "1";
+  }, 2200);
+});
+
+
+const terminalLayer = document.getElementById("terminal-layer");
+
+const terminalData = [
+  ["system check...", "cpu: stable", "memory: ok"],
+  ["network scan...", "ports open: 3", "firewall active"],
+  ["loading modules...", "auth: verified", "access granted"],
+  ["syncing data...", "cloud: connected", "status: online"]
+];
+
+function createTerminal(lines) {
+  const box = document.createElement("div");
+  box.classList.add("spawn-terminal");
+
+  box.style.top = Math.random() * 80 + "vh";
+  box.style.left = Math.random() * 80 + "vw";
+
+  let i = 0;
+
+  function typeLine() {
+    if (i < lines.length) {
+      const p = document.createElement("p");
+      p.textContent = "> " + lines[i];
+      box.appendChild(p);
+      i++;
+      setTimeout(typeLine, 500);
+    }
+  }
+
+  terminalLayer.appendChild(box);
+
+  setTimeout(() => {
+    box.classList.add("show");
+    typeLine();
+  }, 200);
+
+  setTimeout(() => {
+    box.style.opacity = "0";
+    setTimeout(() => box.remove(), 1000);
+  }, 12000);
+}
+
+function spawnLoop() {
+  const data = terminalData[Math.floor(Math.random() * terminalData.length)];
+  createTerminal(data);
+
+  setTimeout(spawnLoop, Math.random() * 2000 + 800);
+}
+
+spawnLoop();
