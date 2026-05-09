@@ -370,7 +370,15 @@ const terminalData = [
   ["system check...", "cpu: stable", "memory: ok"],
   ["network scan...", "ports open: 3", "firewall active"],
   ["loading modules...", "auth: verified", "access granted"],
-  ["syncing data...", "cloud: connected", "status: online"]
+  ["syncing data...", "cloud: connected", "status: online"],
+  ["[Constellation, 'Demon King of Salvation', is greeting you.]"],
+  ["⸢Hello, Puppet of the Oldest Dream.⸥"],
+  ["syncing data...", "cloud: failed", "status: retrying..."],
+  ["system check...", "cpu: overheating", "memory: critical"],
+  ["⸢Tell me, you fool. If I continue to regress, will I ever get to meet you again?⸥"],
+  ["loading modules...", "auth: failed", "access denied!"],
+  ["[Constellation, 'Demon-like Judge of Fire', is saying Hi to you.]"],
+  ["[Constellation, 'Secretive Plotter', is watching you.]"]
 ];
 
 function createTerminal(lines) {
