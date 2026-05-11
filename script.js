@@ -19,7 +19,7 @@ const projects = [
   {
     title: "Online Shopping Website",
     description: "E-commerce platform",
-    link: "https://limoshopping.netlify.app/#footer",
+    link: "https://limoshopping.netlify.app/",
     tech: [
       { name: "HTML", icon: "images/html-5.png" },
       { name: "CSS", icon: "images/css-3.png" }
@@ -32,6 +32,24 @@ const projects = [
     tech: [
       { name: "DaVinci Resolve", icon: "images/davinci.png" },
       { name: "Adobe Photoshop", icon: "images/photoshop.png" }
+    ]
+  },
+  {
+    title: "Movie Website",
+    description: "A movie website that allows users to browse and search for movies, view details, and read reviews.",
+    link: "https://sean-web-movies.netlify.app/",
+    tech: [
+      { name: "HTML", icon: "images/html-5.png" },
+      { name: "CSS", icon: "images/css-3.png" },
+      { name: "JavaScript", icon: "images/js.png" }
+    ]
+  },
+  {
+    title: "POS System",
+    description: "A point-of-sale system for a fictional coffee shop.",
+    link: "https://github.com/itszshinnn/starsbuck-pos-system",
+    tech: [
+      { name: "C++", icon: "images/c-.png" }
     ]
   }
 ];
