@@ -67,8 +67,19 @@ body.light-mode .carousel-btn:hover {
 nav {
   display: flex;
   justify-content: space-between;
+  align-items: center;
   padding: 15px 20px;
-  background: #222;
+  background: rgba(34,34,34,0.9);
+  position: fixed;
+  top: 20px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 100%;
+  max-width: 99%;
+  border-radius: 18px;
+  z-index: 999;
+  transition: all 0.4s ease;
+  backdrop-filter: blur(10px);
 }
 
 .nav-right {
@@ -76,6 +87,19 @@ nav {
   align-items: center;
   gap: 15px;
 }
+
+nav.scrolled {
+  top: 10px;
+  width: 75%;
+  padding: 10px 18px;
+  background: rgba(20,20,20,0.75);
+  box-shadow: 0 10px 30px rgba(0,0,0,0.35);
+}
+
+nav.scrolled .logo {
+  width: 45px;
+}
+
 section {
   padding: 40px 20px 100px;
   margin: 0px;
@@ -110,7 +134,7 @@ a {
 }
 
 main {
-    padding: 20px;
+  padding-top: 120px;
 }
 
 .card {
