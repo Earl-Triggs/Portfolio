@@ -184,9 +184,7 @@ main {
 }
 
 .profile-img {
-  width: 300px;
-  border-radius: 50%;
-
+  width: 900px;
 }
 
 .logo {
@@ -285,7 +283,7 @@ footer {
     text-align: center;
   }
   #changing-text {
-    font-size: 2rem;
+    font-size: 9rem;
   }
   .about-container {
     flex-direction: column;
@@ -626,13 +624,11 @@ footer {
 }
 
 .terminal-profile {
-  width: 120px;
-  height: 120px;
+  width: 220px;
+  height: 220px;
   border-radius: 10px;
-
   margin: 10px 0;
   border: 1px solid rgba(127, 220, 255, 0.3);
-
   object-fit: cover;
   display: block;
 }

@@ -51,6 +51,16 @@ const projects = [
     tech: [
       { name: "C++", icon: "images/c-.png" }
     ]
+  },
+  {
+    title: "Lyrics Website (Small Personal Project)",
+    description: "pang relapse. (Experimented with javascript to play music and display lyrics in sync.)",
+    link: "relapse.html",
+    tech: [
+      { name: "HTML", icon: "images/html-5.png" },
+      { name: "CSS", icon: "images/css-3.png" },
+      { name: "JavaScript", icon: "images/js.png" }
+    ]
   }
 ];
 
