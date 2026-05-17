@@ -25,7 +25,7 @@ The website was designed with a minimalist / cyber-central inspired theme and in
 - Responsive layout
 - Hidden easter eggs & references that I added for fun
 
-## 🛠️ Built With
+## Built With
 
 - HTML5
 - CSS3
@@ -58,7 +58,7 @@ This portfolio was heavily inspired by:
 
 https://earljosephlimo.netlify.app/
 
-## ⚡ Notes
+## Notes
 
 Some visual effects and hidden interactions were intentionally added to make the portfolio feel more alive and interactive rather than static. Was mostly just me experimenting with JavaScript and wanting to make my website feel like "Me".
 
